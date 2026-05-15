@@ -18,7 +18,12 @@ function makeId() {
 }
 
 function todayKey(date = new Date()) {
-  return date.toISOString().slice(0, 10);
+  const year = date.getFullYear();
+  // Months are 0-indexed in JS, so we add 1. padStart ensures it's 2 digits (e.g., '05')
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  
+  return `${year}-${month}-${day}`;
 }
 
 function parseDateOnly(dateString) {
