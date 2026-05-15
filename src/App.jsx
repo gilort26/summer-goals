@@ -286,8 +286,6 @@ export default function SummerGoalTracker() {
     } = supabase.auth.onAuthStateChange((_event, nextSession) => {
       setSession(nextSession);
       setAuthLoading(false);
-      setCloudLoaded(false);
-      setCloudError("");
     });
 
     return () => {
